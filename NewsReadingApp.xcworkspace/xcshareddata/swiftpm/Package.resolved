@@ -2,12 +2,39 @@
   "object": {
     "pins": [
       {
+        "package": "ActivityIndicatorView",
+        "repositoryURL": "https://github.com/exyte/ActivityIndicatorView.git",
+        "state": {
+          "branch": null,
+          "revision": "ad484c6e645c41eb298e48f663ac1ed76aedde00",
+          "version": "0.0.6"
+        }
+      },
+      {
         "package": "BetterSafariView",
         "repositoryURL": "https://github.com/stleamist/BetterSafariView.git",
         "state": {
           "branch": null,
           "revision": "561919b490eddf8f999b0f855cbf237001cbfccd",
           "version": "2.3.1"
+        }
+      },
+      {
+        "package": "Introspect",
+        "repositoryURL": "https://github.com/siteline/SwiftUI-Introspect.git",
+        "state": {
+          "branch": null,
+          "revision": "36ecf80429d00a4cd1e81fbfe4655b1d99ebd651",
+          "version": "0.1.2"
+        }
+      },
+      {
+        "package": "SwiftUIRefresh",
+        "repositoryURL": "https://github.com/timbersoftware/SwiftUIRefresh.git",
+        "state": {
+          "branch": null,
+          "revision": "fa8fac7b5eb5c729983a8bef65f094b5e0d12014",
+          "version": "0.0.3"
         }
       }
     ]

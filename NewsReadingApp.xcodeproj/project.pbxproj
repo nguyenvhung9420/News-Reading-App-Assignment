@@ -25,9 +25,13 @@
 		AB0F1DDA25FCB502000DBB92 /* AuthenticationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0F1DD925FCB502000DBB92 /* AuthenticationProvider.swift */; };
 		AB0F1DDF25FCB505000DBB92 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0F1DDE25FCB505000DBB92 /* NetworkProvider.swift */; };
 		AB0F1DE825FCB570000DBB92 /* BetterSafariView in Frameworks */ = {isa = PBXBuildFile; productRef = AB0F1DE725FCB570000DBB92 /* BetterSafariView */; };
+		AB1E008425FFA9D900F6D8B3 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E008325FFA9D900F6D8B3 /* ActivityIndicator.swift */; };
+		AB1E008A25FFAAFD00F6D8B3 /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = AB1E008925FFAAFD00F6D8B3 /* ActivityIndicatorView */; };
 		ABC7CBEF25FD0C9A0018DDC9 /* NewsDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC7CBEE25FD0C9A0018DDC9 /* NewsDetailsView.swift */; };
 		ABC7CBFC25FD12B60018DDC9 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC7CBFB25FD12B60018DDC9 /* ImageLoader.swift */; };
 		ABC7CC0A25FD1D560018DDC9 /* DatabaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC7CC0925FD1D560018DDC9 /* DatabaseProvider.swift */; };
+		ABF7105C25FE1E11008B9263 /* ChoosingPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF7105B25FE1E11008B9263 /* ChoosingPreferencesView.swift */; };
+		ABF7106525FF2EF0008B9263 /* SwiftUIRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = ABF7106425FF2EF0008B9263 /* SwiftUIRefresh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,9 +79,11 @@
 		AB0F1DD425FCB4FE000DBB92 /* PreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		AB0F1DD925FCB502000DBB92 /* AuthenticationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationProvider.swift; sourceTree = "<group>"; };
 		AB0F1DDE25FCB505000DBB92 /* NetworkProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		AB1E008325FFA9D900F6D8B3 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		ABC7CBEE25FD0C9A0018DDC9 /* NewsDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsView.swift; sourceTree = "<group>"; };
 		ABC7CBFB25FD12B60018DDC9 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		ABC7CC0925FD1D560018DDC9 /* DatabaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProvider.swift; sourceTree = "<group>"; };
+		ABF7105B25FE1E11008B9263 /* ChoosingPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingPreferencesView.swift; sourceTree = "<group>"; };
 		BCFBB84EE20007E7C75F404B /* Pods-NewsReadingApp-NewsReadingAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsReadingApp-NewsReadingAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-NewsReadingApp-NewsReadingAppUITests/Pods-NewsReadingApp-NewsReadingAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BE9C1ECD96328607CAAC86FE /* Pods-NewsReadingAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsReadingAppTests.debug.xcconfig"; path = "Target Support Files/Pods-NewsReadingAppTests/Pods-NewsReadingAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,7 +93,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABF7106525FF2EF0008B9263 /* SwiftUIRefresh in Frameworks */,
 				840C5FB8C3F4920D87C36E23 /* Pods_NewsReadingApp.framework in Frameworks */,
+				AB1E008A25FFAAFD00F6D8B3 /* ActivityIndicatorView in Frameworks */,
 				AB0F1DE825FCB570000DBB92 /* BetterSafariView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,20 +169,13 @@
 			children = (
 				AB0F1D7E25FCB49E000DBB92 /* AppDelegate.swift */,
 				AB0F1D8025FCB49E000DBB92 /* SceneDelegate.swift */,
-				AB0F1DC025FCB4EC000DBB92 /* ContentView.swift */,
-				AB0F1DC525FCB4F4000DBB92 /* LoginView.swift */,
-				AB0F1DCA25FCB4F8000DBB92 /* TopHeadlinesView.swift */,
-				AB0F1DCF25FCB4FB000DBB92 /* YourNewsView.swift */,
-				AB0F1DD425FCB4FE000DBB92 /* PreferencesView.swift */,
 				AB0F1D8425FCB4A0000DBB92 /* Assets.xcassets */,
 				AB0F1D8925FCB4A0000DBB92 /* LaunchScreen.storyboard */,
 				AB0F1D8C25FCB4A0000DBB92 /* Info.plist */,
-				AB0F1DD925FCB502000DBB92 /* AuthenticationProvider.swift */,
-				AB0F1DDE25FCB505000DBB92 /* NetworkProvider.swift */,
+				AB1E008E25FFD38100F6D8B3 /* Views */,
+				AB1E008F25FFD3A200F6D8B3 /* Helpers */,
+				AB1E009025FFD3C900F6D8B3 /* Models */,
 				AB0F1D8625FCB4A0000DBB92 /* Preview Content */,
-				ABC7CBEE25FD0C9A0018DDC9 /* NewsDetailsView.swift */,
-				ABC7CBFB25FD12B60018DDC9 /* ImageLoader.swift */,
-				ABC7CC0925FD1D560018DDC9 /* DatabaseProvider.swift */,
 			);
 			path = NewsReadingApp;
 			sourceTree = "<group>";
@@ -205,6 +206,39 @@
 			path = NewsReadingAppUITests;
 			sourceTree = "<group>";
 		};
+		AB1E008E25FFD38100F6D8B3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ABC7CBEE25FD0C9A0018DDC9 /* NewsDetailsView.swift */,
+				AB0F1DC025FCB4EC000DBB92 /* ContentView.swift */,
+				AB0F1DC525FCB4F4000DBB92 /* LoginView.swift */,
+				AB0F1DCA25FCB4F8000DBB92 /* TopHeadlinesView.swift */,
+				AB0F1DCF25FCB4FB000DBB92 /* YourNewsView.swift */,
+				ABF7105B25FE1E11008B9263 /* ChoosingPreferencesView.swift */,
+				AB0F1DD425FCB4FE000DBB92 /* PreferencesView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AB1E008F25FFD3A200F6D8B3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				ABC7CBFB25FD12B60018DDC9 /* ImageLoader.swift */,
+				AB1E008325FFA9D900F6D8B3 /* ActivityIndicator.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		AB1E009025FFD3C900F6D8B3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				ABC7CC0925FD1D560018DDC9 /* DatabaseProvider.swift */,
+				AB0F1DDE25FCB505000DBB92 /* NetworkProvider.swift */,
+				AB0F1DD925FCB502000DBB92 /* AuthenticationProvider.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -225,6 +259,8 @@
 			name = NewsReadingApp;
 			packageProductDependencies = (
 				AB0F1DE725FCB570000DBB92 /* BetterSafariView */,
+				ABF7106425FF2EF0008B9263 /* SwiftUIRefresh */,
+				AB1E008925FFAAFD00F6D8B3 /* ActivityIndicatorView */,
 			);
 			productName = NewsReadingApp;
 			productReference = AB0F1D7B25FCB49E000DBB92 /* NewsReadingApp.app */;
@@ -302,6 +338,8 @@
 			mainGroup = AB0F1D7225FCB49E000DBB92;
 			packageReferences = (
 				AB0F1DE625FCB570000DBB92 /* XCRemoteSwiftPackageReference "BetterSafariView" */,
+				ABF7106325FF2EF0008B9263 /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */,
+				AB1E008825FFAAFD00F6D8B3 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */,
 			);
 			productRefGroup = AB0F1D7C25FCB49E000DBB92 /* Products */;
 			projectDirPath = "";
@@ -453,11 +491,13 @@
 				AB0F1D8125FCB49E000DBB92 /* SceneDelegate.swift in Sources */,
 				AB0F1DDF25FCB505000DBB92 /* NetworkProvider.swift in Sources */,
 				AB0F1DDA25FCB502000DBB92 /* AuthenticationProvider.swift in Sources */,
+				AB1E008425FFA9D900F6D8B3 /* ActivityIndicator.swift in Sources */,
 				ABC7CBEF25FD0C9A0018DDC9 /* NewsDetailsView.swift in Sources */,
 				ABC7CBFC25FD12B60018DDC9 /* ImageLoader.swift in Sources */,
 				AB0F1DD025FCB4FB000DBB92 /* YourNewsView.swift in Sources */,
 				AB0F1DCB25FCB4F8000DBB92 /* TopHeadlinesView.swift in Sources */,
 				AB0F1DC625FCB4F4000DBB92 /* LoginView.swift in Sources */,
+				ABF7105C25FE1E11008B9263 /* ChoosingPreferencesView.swift in Sources */,
 				ABC7CC0A25FD1D560018DDC9 /* DatabaseProvider.swift in Sources */,
 				AB0F1DC125FCB4EC000DBB92 /* ContentView.swift in Sources */,
 				AB0F1DD525FCB4FE000DBB92 /* PreferencesView.swift in Sources */,
@@ -634,7 +674,7 @@
 				DEVELOPMENT_TEAM = TJ4MUVGY38;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = NewsReadingApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -657,7 +697,7 @@
 				DEVELOPMENT_TEAM = TJ4MUVGY38;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = NewsReadingApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -807,6 +847,22 @@
 				minimumVersion = 2.3.1;
 			};
 		};
+		AB1E008825FFAAFD00F6D8B3 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/ActivityIndicatorView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.6;
+			};
+		};
+		ABF7106325FF2EF0008B9263 /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/timbersoftware/SwiftUIRefresh.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -814,6 +870,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AB0F1DE625FCB570000DBB92 /* XCRemoteSwiftPackageReference "BetterSafariView" */;
 			productName = BetterSafariView;
+		};
+		AB1E008925FFAAFD00F6D8B3 /* ActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AB1E008825FFAAFD00F6D8B3 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */;
+			productName = ActivityIndicatorView;
+		};
+		ABF7106425FF2EF0008B9263 /* SwiftUIRefresh */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ABF7106325FF2EF0008B9263 /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */;
+			productName = SwiftUIRefresh;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

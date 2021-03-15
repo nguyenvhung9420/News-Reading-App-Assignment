@@ -22,27 +22,46 @@ struct NewsDetailsView: View {
         return URL(string: article.url)!
     }
     
+    var formatedDate: String {
+        let isoDate = article.publishedAt
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        let date = dateFormatter.date(from:isoDate)!
+        
+        let formatter2 = DateFormatter()
+        formatter2.dateFormat = "HH:mm E, d MMM y"
+        return (formatter2.string(from: date))
+    }
+    
     var body: some View {
         ScrollView {
         VStack {
             
             AsyncImage(url: self.urlToImage, placeholder: {
-                        
                 Image(imgPlaceholders.randomElement()!)
                     .resizable()
                 
-            }) .aspectRatio(contentMode: .fit)
-            VStack(alignment: .leading) {
-                Text(article.title)
+            })
+            .aspectRatio(contentMode: .fit)
+            VStack(alignment: .leading, spacing: 20) {
+                
+                Text(article.title).font(.system(.title)).bold() 
+                
+                Text(article.author).font(.system(.headline))
+                
+                Text(self.formatedDate).font(.system(.caption))
+                
+                Text(article.briefDescription).foregroundColor(.gray)
+                
+                Text(article.content)
+                
                 Button(action: {
                     self.showingSheet = true
                 }, label: {
                     Text("See more details")
                 })
-                Text(article.author)
-                Text(article.publishedAt)
-                Text(article.briefDescription)
-                Text(article.content)
+                
             }.padding()
            
             

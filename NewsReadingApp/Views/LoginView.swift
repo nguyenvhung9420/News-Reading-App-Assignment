@@ -5,15 +5,13 @@
 //  Created by Hung Nguyen on 13/3/21.
 //
 
-
-import Foundation
-import SwiftUI
-import KeyboardObserving
 import Combine
+import Foundation
+import KeyboardObserving
+import SwiftUI
 
-struct LoginScreen:  View {
-    
-    @EnvironmentObject var authProvider: AuthenticationProvider
+struct LoginScreen: View {
+    @EnvironmentObject var authProvider: AuthenticationProvider 
     
     @State var password: String = ""
     @State var email: String = ""
@@ -29,12 +27,17 @@ struct LoginScreen:  View {
     
     @State private var selection = 0 // 0 for register, 1 for login
     
+    @State private var showingLoginFailedAlert: Bool = false
+    @State private var showingSignupFailedAlert: Bool = false
+    
+    var onPressLogIn: () -> Void
+    
+    init(onPressLogIn: @escaping () -> Void = {}) {
+        self.onPressLogIn = onPressLogIn
+    }
     
     var body: some View {
-        
-       
         VStack {
-            
             Picker(selection: $selection, label: Text("What you wanna do?")) {
                 Text("Register").tag(0)
                 Text("Log In").tag(1)
@@ -46,59 +49,52 @@ struct LoginScreen:  View {
                 Text("Log In").bold().font(.title)
             }
             
-            if (self.currentError != nil) {
-                
+            if self.currentError != nil {
                 VStack(alignment: .leading) {
-                    HStack{
+                    HStack {
                         Text("Error").foregroundColor(Color.white).bold()
                         Spacer()
                         Button(action: {
                             self.currentError = nil
-                        }){
+                        }) {
                             Image(systemName: "xmark.circle").foregroundColor(Color.white)
                         }
-                        
                     }
                     Text(String(self.currentError!.localizedDescription))
                         .fixedSize(horizontal: false, vertical: true)
                         .foregroundColor(Color.white)
                 }.padding().background(Color.red).cornerRadius(12)
-                
             }
             
-            if (self.currentAnnounce != "") {
-                
+            if self.currentAnnounce != "" {
                 VStack(alignment: .leading) {
-                    HStack{
+                    HStack {
                         Text("Info").foregroundColor(Color.white).bold()
                         Spacer()
                         Button(action: {
                             self.currentAnnounce = ""
-                        }){
+                        }) {
                             Image(systemName: "xmark.circle").foregroundColor(Color.white)
                         }
-                        
                     }
                     Text(String(self.currentAnnounce!))
                         .fixedSize(horizontal: false, vertical: true)
                         .foregroundColor(Color.white)
                 }.padding().background(Color.blue).cornerRadius(12)
-                
-                
-                
             }
             
-            
-            TextField("Email", text: self.$email)
+            TextField("Username", text: self.$email)
                 .padding()
                 .background(Color.gray.opacity(0.08))
-                .cornerRadius(12.0).keyboardType(.emailAddress).autocapitalization(.none)
+                .cornerRadius(12.0).keyboardType(.emailAddress)
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
             
             SecureField("Password", text: self.$password) {
                 // submit the password
             }.padding()
-            .background(Color.gray.opacity(0.08))
-            .cornerRadius(12.0).keyboardType(.emailAddress).autocapitalization(.none)
+                .background(Color.gray.opacity(0.08))
+                .cornerRadius(12.0).keyboardType(.emailAddress).autocapitalization(.none)
             
             Button(action: submit) {
                 HStack(alignment: .center) {
@@ -107,67 +103,30 @@ struct LoginScreen:  View {
                     Spacer()
                 }
             }.padding().background(Color.green).cornerRadius(12.0)
-            
-            if self.selection == 1 {
-                Button(action: sendPasswordReset) {
-                    Text("Forgot Password?").font(.system(size: 15))
-                }.padding()
-            }
-            }
+        }
         .animation(.default)
-        .padding().keyboardObserving()
+        .padding()
+        .alert(isPresented: $showingLoginFailedAlert) {
+            Alert(title: Text("Error"), message: Text("Wrong username/password or the user does not exist."), dismissButton: .default(Text("OK")))
+        }
+        .alert(isPresented: $showingSignupFailedAlert) {
+            Alert(title: Text("Error"), message: Text("This username already exist."), dismissButton: .default(Text("OK")))
+        }
+        .keyboardObserving()
     }
     
     func submit() {
-        print($email)
-        print($password)
-        
-        authProvider.loggedIn = true
-        
         if selection == 0 {
-//            Auth.auth().createUser(withEmail: self.email, password: self.password) {
-//                authResult, error in
-//                self.currentAnnounce = "Welcome back, \(self.email). Please wait."
-//                if let e = error {
-//                    print(e.localizedDescription)
-//                    self.currentError = e
-//                    self.currentAnnounce = ""
-//                } else {
-//                    self.fetcher.makeLoggedIn(email: self.email)
-//                }
-//            }
-            
+            let signupSucess: Bool = LocalRealm.instance.addUser(username: self.email, password: self.password)
+            if signupSucess {
+                self.showingLoginFailedAlert = !authProvider.login(username: self.email, password: self.password)
+                self.onPressLogIn()
+            } else {
+                self.showingSignupFailedAlert = true
+            }
         } else {
-//            Auth.auth().signIn(withEmail: email, password: password){
-//                authResult , error in
-//                self.currentAnnounce = "Welcome back, \(self.email). Please wait."
-//                if let e = error {
-//                    print(e.localizedDescription)
-//                    self.currentError = e
-//                    self.currentAnnounce = ""
-//                } else {
-//                    self.fetcher.makeLoggedIn(email: self.email)
-//
-//                }
-//
-//
-//            }
+            print("This is logging in")
+            self.showingLoginFailedAlert = !authProvider.login(username: self.email, password: self.password)
         }
     }
-    
-    func sendPasswordReset() {
-        print($email)
-        print($password)
-        
-//        Auth.auth().sendPasswordReset(withEmail: email){ error in
-//            if let e = error {
-//                print(e.localizedDescription)
-//                self.currentError = e
-//            }
-//            self.currentAnnounce = "An email containing instruction to recover your password will be sent to \(self.email) if your email is already registered."
-//        }
-        
-    }
-    
 }
-
