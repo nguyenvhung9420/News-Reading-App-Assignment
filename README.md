@@ -10,7 +10,7 @@
 3. The application's UI is implemented with the new SwiftUI of Apple, introduced in June 2019.
 4. Some libraries applied in the app are **Alamofire (AF)**, **Keyboard Observing for SwiftUI**, ect.
 5. The application reactive states are managed by the new **Combine** of Apple
-5. Application have these features:
+5. Application has these features:
     a. News list with images
     b. News details with images
     c. Link to open original news by using SwiftUI Safari view.
