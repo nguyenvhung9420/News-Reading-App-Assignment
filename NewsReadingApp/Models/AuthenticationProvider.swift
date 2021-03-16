@@ -35,8 +35,7 @@ public class AuthenticationProvider: ObservableObject {
     
     func logout() -> Bool {
         UserDefaults.standard.removeObject(forKey: "logged_in_username")
-        print(UserDefaults.standard.string(forKey: "logged_in_username"))
-//        self.loggedUser = nil
+        print(UserDefaults.standard.string(forKey: "logged_in_username")) 
         return true
     }
     

@@ -38,7 +38,6 @@ class NetworkDataProvider: ObservableObject {
         AF.request(apiUrl, method: .get).response { response in
             do {
                 guard let data = response.data else {
-//                    fatalError()
                     return
                 }
                 let json = try JSON(data: data)
@@ -75,13 +74,11 @@ class NetworkDataProvider: ObservableObject {
         AF.request(apiUrl, method: .get).response { response in
             do {
                 guard let data = response.data else {
-//                    fatalError()
                     print("There is no connection, please try again...")
                     return
                 }
                 let json = try JSON(data: data)
-                
-                //                let articles: [Article] =
+                 
                 json["articles"].arrayValue.forEach {
                     var sourceName: String = ""
                     if let source = $0["source"]["name"].stringValue as? String {
@@ -96,7 +93,6 @@ class NetworkDataProvider: ObservableObject {
                     article.publishedAt = $0["publishedAt"].stringValue
                     article.urlToImage = $0["urlToImage"].stringValue
                     article.url = $0["url"].stringValue
-//                    print(article.author)
                     
                     self.headlineArticles.append(article)
                 }
@@ -110,41 +106,4 @@ class NetworkDataProvider: ObservableObject {
     }
 }
 
-struct Article: Codable, Hashable {
-    var source: String = ""
-    var name: String = ""
-    var author: String = ""
-    var title: String = ""
-    var briefDescription: String = ""
-    var url: String = ""
-    var urlToImage: String = ""
-    var publishedAt: String = ""
-    var content: String = ""
-    
-    func getDate() -> Date {
-        let isoDate = self.publishedAt
-        let dateFormatter = ISO8601DateFormatter()
-        let date = dateFormatter.date(from: isoDate)!
-        return date
-    }
-    
-    func getImageUrl() -> URL?{
-        if let url: URL = URL(string: self.urlToImage) {
-            return url
-        } else {
-            return nil
-        }
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case source
-        case name
-        case author
-        case title
-        case briefDescription = "description"
-        case url
-        case urlToImage
-        case publishedAt
-        case content
-    }
-}
+
