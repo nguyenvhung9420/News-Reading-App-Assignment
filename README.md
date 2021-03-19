@@ -1,6 +1,4 @@
-# SwiftUI News Reading App - Assignment test for iOS Developer
-
-**Done by NGUYEN Van Hung, 16th March 2021**
+# SwiftUI News Reading App - Assignment test for iOS Developer 
 
 
 ### Specifications:
